@@ -1,4 +1,5 @@
 ﻿using Api.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Api.Context
 {
-    public class AmigosContext : DbContext
+    public class AmigosContext : IdentityDbContext
     {
         public AmigosContext(DbContextOptions<AmigosContext> options) : base(options)
         {
@@ -32,5 +33,7 @@ namespace Api.Context
                 return new AmigosContext(builder.Options);
             }
         }
+
+        public DbSet<Api.Models.Usuario> Usuario { get; set; }
     }
 }
