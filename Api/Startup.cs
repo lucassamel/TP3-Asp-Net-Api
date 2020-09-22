@@ -34,6 +34,21 @@ namespace Api
             services.AddIdentity<IdentityUser, IdentityRole>()
                         .AddEntityFrameworkStores<AmigosContext>();
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequiredLength = 10;
+                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequireNonAlphanumeric = false;
+            });
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 10;
+                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequireNonAlphanumeric = false;
+            })
+            .AddEntityFrameworkStores<AmigosContext>();
+
             services.AddControllers();
         }
 

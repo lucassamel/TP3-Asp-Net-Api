@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Api_Consume
+namespace MVC_Consume
 {
     public class Startup
     {
@@ -46,7 +46,7 @@ namespace Api_Consume
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Amigo}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
